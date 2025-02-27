@@ -6,7 +6,7 @@ name: 天气预报推送
 on:
   schedule:
     # 设置启动时间，为 UTC 时间, UTC23点 对应北京时间早7点
-    - cron : '00 23 * * *'
+    - cron : '00 01 * * *'
   workflow_dispatch:
 
 permissions:
@@ -31,11 +31,7 @@ jobs:
     - name: Run weather Report
       run: |
         python weather_report.py
-      env:
-        APP_ID: ${{ secrets.APP_ID }}
-        APP_SECRET: ${{ secrets.APP_SECRET }}
-        OPEN_ID: ${{ secrets.OPEN_ID }}
-        TEMPLATE_ID: ${{ secrets.TEMPLATE_ID }}
+      env:        
         MAIL_SEND: ${{ secrets.MAIL_SEND }}
         MAIL_SEND_PASSWORD: ${{ secrets.MAIL_SEND_PASSWORD }}
         MAIL_RECEIVE: ${{ secrets.MAIL_RECEIVE }}
