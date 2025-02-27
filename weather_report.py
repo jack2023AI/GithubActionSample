@@ -1,3 +1,8 @@
+import os
+import requests
+import json
+from bs4 import BeautifulSoup
+
 import smtplib
 from email.mime.text import MIMEText
 
