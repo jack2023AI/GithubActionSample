@@ -69,7 +69,7 @@ def check_WorkTime0(new_time):
 def check_WorkTime(new_time):
   # Define the time range for 9 AM to 11 AM
   start_time = new_time.replace(hour=9, minute=20, second=0, microsecond=0)
-  end_time = new_time.replace(hour=15, minute=0, second=0, microsecond=0)
+  end_time = new_time.replace(hour=22, minute=0, second=0, microsecond=0)
   # Check if new_time is within the range
   is_within_range = start_time <= new_time <= end_time
 
@@ -93,6 +93,18 @@ def check_difference(a_Old, h_Old, dif_ok,dif_ok2,name, a_code,h_code):
         a_Now = a_stock_data.loc[a_stock_data['代码'] == a_code, '最新价'].item()
         h_Now = h_stock_data.loc[h_stock_data['代码'] == h_code, '最新价'].item()
 
+        a_ZhangDie = a_stock_data.loc[a_stock_data['代码'] == a_code, '涨跌幅'].item()
+        h_ZhangDie = h_stock_data.loc[h_stock_data['代码'] == h_code, '涨跌幅'].item()
+
+        zhangdie_ok = dif_ok2
+
+        if (abs(a_ZhangDie)>zhangdie_ok) or (abs(h_ZhangDie)>zhangdie_ok):
+          subject = "关注涨跌幅_"+name
+          time_11=get_nowTime()
+          body=time_11.strftime('%Y-%m-%d %H:%M:%S')
+          send_email(subject, body, sender_email, sender_password, recipient_email)
+          zhangdie_ok=zhangdie_ok*2
+
         #print(a_Now)
         #print(h_Now)
 
@@ -101,9 +113,10 @@ def check_difference(a_Old, h_Old, dif_ok,dif_ok2,name, a_code,h_code):
 
         print(get_nowTime(),a_Now,h_Now,dif)
 
-        subject = "关注价差_"+name
+        
 
         if abs(dif)>dif_ok:
+          subject = "关注套利_"+name
           time_11=get_nowTime()
           body=time_11.strftime('%Y-%m-%d %H:%M:%S')
       
@@ -142,6 +155,7 @@ if __name__ == '__main__':
         a_Old = float(values[0].strip())
         h_Old = float(values[1].strip())
         dif_ok = float(values[2].strip())
+        dif_ok2 = float(values[3].strip())
 
      #发送邮件
     subject = "今日启动"
@@ -154,7 +168,7 @@ if __name__ == '__main__':
     #a_Old=3.63
     #h_Old=2.50
     #dif_ok=2.0
-    dif_ok2=dif_ok
+    #dif_ok2=dif_ok
     name='中国广核'
     a_code='003816'
     h_code='01816'
