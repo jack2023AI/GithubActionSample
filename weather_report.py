@@ -58,13 +58,13 @@ def check_WorkTime(new_time):
   is_within_range = start_time <= new_time <= end_time
 
   start_time2 = new_time.replace(hour=13, minute=0, second=0, microsecond=0)
-  end_time2 = new_time.replace(hour=17, minute=54, second=0, microsecond=0)
+  end_time2 = new_time.replace(hour=17, minute=57, second=0, microsecond=0)
   is_within_range2 = start_time2 <= new_time <= end_time2
 
   return is_within_range or is_within_range2
 
 def check_FinishWorkTime(new_time):
-  finish_time = new_time.replace(hour=17, minute=54, second=0, microsecond=0)
+  finish_time = new_time.replace(hour=17, minute=57, second=0, microsecond=0)
   return   new_time > finish_time
 
 def check_difference(a_Old, h_Old, dif_ok,dif_ok2,name, a_code,h_code):
