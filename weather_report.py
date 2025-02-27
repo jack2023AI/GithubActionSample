@@ -93,7 +93,9 @@ def check_difference(a_Old, h_Old, dif_ok,dif_ok2,name, a_code,h_code):
         subject = "关注价差_"+name
 
         if abs(dif)>dif_ok:
-          body= name
+          time_11=get_nowTime()
+          body=time_11.strftime('%Y-%m-%d %H:%M:%S')
+      
           send_email(subject, body, sender_email, sender_password, recipient_email)
           a_Old = a_Now
           h_Old = h_Now
@@ -108,7 +110,9 @@ def check_difference(a_Old, h_Old, dif_ok,dif_ok2,name, a_code,h_code):
       #time.sleep(60)  # 模拟等待秒数
 
       subject = "今日结束"
-      body = "今日结束"
+      #body = "今日结束"
+      time_11=get_nowTime()
+      body=time_11.strftime('%Y-%m-%d %H:%M:%S')
       send_email(subject, body, sender_email, sender_password, recipient_email)
       break
 
