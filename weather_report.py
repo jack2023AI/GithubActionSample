@@ -123,7 +123,7 @@ if __name__ == '__main__':
     #发送邮件
     subject = "今日启动"
     time_11=get_nowTime()
-    subject=subject+time_11.strftime('%Y-%m-%d %H:%M:%S')
+    body=time_11.strftime('%Y-%m-%d %H:%M:%S')
     send_email(subject, body, sender_email, sender_password, recipient_email)
 
     a_Old=3.63
