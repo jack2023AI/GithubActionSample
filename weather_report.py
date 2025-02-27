@@ -79,7 +79,7 @@ def check_FinishWorkTime(new_time):
   finish_time = new_time.replace(hour=15, minute=0, second=0, microsecond=0)
   return   new_time > finish_time
 
-def check_difference(a_Old, h_Old, dif_ok,dif_ok2,name, a_code,h_code):
+def check_difference(a_Old, h_Old, dif_ok,zhangdie_ok,name, a_code,h_code):
   while True:
     if check_WorkTime(get_nowTime()):
     #if True:
@@ -96,8 +96,6 @@ def check_difference(a_Old, h_Old, dif_ok,dif_ok2,name, a_code,h_code):
         a_ZhangDie = a_stock_data.loc[a_stock_data['代码'] == a_code, '涨跌幅'].item()
         h_ZhangDie = h_stock_data.loc[h_stock_data['代码'] == h_code, '涨跌幅'].item()
 
-        zhangdie_ok = dif_ok2
-
         if (abs(a_ZhangDie)>zhangdie_ok) or (abs(h_ZhangDie)>zhangdie_ok):
           subject = "关注涨跌幅_"+name
           time_11=get_nowTime()
@@ -110,10 +108,7 @@ def check_difference(a_Old, h_Old, dif_ok,dif_ok2,name, a_code,h_code):
 
         #dif=(a_Now.iloc[0]/a_Old-h_Now.iloc[0]/h_Old)*100  #已经换算为百分比
         dif=(a_Now/a_Old-h_Now/h_Old)*100  #已经换算为百分比
-
-        print(get_nowTime(),a_Now,h_Now,dif)
-
-        
+        print(get_nowTime(),a_Now,h_Now,dif)        
 
         if abs(dif)>dif_ok:
           subject = "关注套利_"+name
@@ -123,7 +118,7 @@ def check_difference(a_Old, h_Old, dif_ok,dif_ok2,name, a_code,h_code):
           send_email(subject, body, sender_email, sender_password, recipient_email)
           a_Old = a_Now
           h_Old = h_Now
-          dif_ok = dif_ok2
+          dif_ok = dif_ok*2
 
         #time.sleep(60)  # 模拟等待秒数
       except Exception as e:
@@ -168,10 +163,10 @@ if __name__ == '__main__':
     #a_Old=3.63
     #h_Old=2.50
     #dif_ok=2.0
-    #dif_ok2=dif_ok
+    #zhangdie_ok=1.5
     name='中国广核'
     a_code='003816'
     h_code='01816'
     
-    check_difference(a_Old, h_Old, dif_ok,dif_ok2,name, a_code,h_code)
+    check_difference(a_Old, h_Old, dif_ok,zhangdie_ok,name, a_code,h_code)
     
