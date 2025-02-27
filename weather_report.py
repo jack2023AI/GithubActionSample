@@ -150,7 +150,7 @@ if __name__ == '__main__':
         a_Old = float(values[0].strip())
         h_Old = float(values[1].strip())
         dif_ok = float(values[2].strip())
-        dif_ok2 = float(values[3].strip())
+        zhangdie_ok = float(values[3].strip())
 
      #发送邮件
     subject = "今日启动"
