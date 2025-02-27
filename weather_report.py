@@ -132,11 +132,18 @@ def check_difference(a_Old, h_Old, dif_ok,dif_ok2,name, a_code,h_code):
       '''
 
 if __name__ == '__main__':
-    #发送邮件
+    with open("price.txt", "r", encoding='utf-8') as f:
+        line = f.readline()
+        values = line.split(',')
+        a_Old = float(values[0].strip())
+        h_Old = float(values[1].strip())
+        dif_ok = float(values[2].strip())
+
+     #发送邮件
     subject = "今日启动"
     time_11=get_nowTime()
     #body=time_11.strftime('%Y-%m-%d %H:%M:%S')
-    body=dif_ok_str
+    body=values[0].strip()
     send_email(subject, body, sender_email, sender_password, recipient_email)
 
     '''
