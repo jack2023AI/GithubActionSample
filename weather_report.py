@@ -15,6 +15,9 @@ body = "This is a test email sent from Python!"
 sender_email = os.environ.get("MAIL_SEND")  # Replace with your email
 sender_password = os.environ.get("MAIL_SEND_PASSWORD")  # Replace with your email password or app-specific password
 recipient_email = os.environ.get("MAIL_RECEIVE")  # Replace with recipient's email
+a_Old = float(os.environ.get("PRICE_A_OLD"))
+h_Old = float(os.environ.get("PRICE_H_OLD"))
+
 
 def send_email(subject, body, sender_email, sender_password, recipient_email):
     # Create the email content
@@ -54,18 +57,18 @@ def get_nowTime():
 def check_WorkTime(new_time):
   # Define the time range for 9 AM to 11 AM
   start_time = new_time.replace(hour=9, minute=30, second=0, microsecond=0)
-  end_time = new_time.replace(hour=11, minute=33, second=0, microsecond=0)
+  end_time = new_time.replace(hour=11, minute=30, second=0, microsecond=0)
   # Check if new_time is within the range
   is_within_range = start_time <= new_time <= end_time
 
   start_time2 = new_time.replace(hour=13, minute=0, second=0, microsecond=0)
-  end_time2 = new_time.replace(hour=18, minute=19, second=0, microsecond=0)
+  end_time2 = new_time.replace(hour=15, minute=0, second=0, microsecond=0)
   is_within_range2 = start_time2 <= new_time <= end_time2
 
   return is_within_range or is_within_range2
 
 def check_FinishWorkTime(new_time):
-  finish_time = new_time.replace(hour=17, minute=57, second=0, microsecond=0)
+  finish_time = new_time.replace(hour=15, minute=0, second=0, microsecond=0)
   return   new_time > finish_time
 
 def check_difference(a_Old, h_Old, dif_ok,dif_ok2,name, a_code,h_code):
@@ -131,8 +134,8 @@ if __name__ == '__main__':
     body=time_11.strftime('%Y-%m-%d %H:%M:%S')
     send_email(subject, body, sender_email, sender_password, recipient_email)
 
-    a_Old=3.63
-    h_Old=2.50
+    #a_Old=3.63
+    #h_Old=2.50
     dif_ok=2.0
     dif_ok2=2.0
     name='中国广核'
