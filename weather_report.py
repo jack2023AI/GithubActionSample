@@ -158,9 +158,9 @@ if __name__ == '__main__':
     # Usage
     subject = "关注价差__"
     body = "This is a test email sent from Python!"
-    sender_email = os.environ.get("APP_SEND_MAIL")  # Replace with your email
-    sender_password = os.environ.get("APP_SEND_PASSWORD")  # Replace with your email password or app-specific password
-    recipient_email = os.environ.get("APP_RECEIVE_MAIL")  # Replace with recipient's email
+    sender_email = os.environ.get("MAIL_SEND")  # Replace with your email
+    sender_password = os.environ.get("MAIL_SEND_PASSWORD")  # Replace with your email password or app-specific password
+    recipient_email = os.environ.get("MAIL_RECEIVE")  # Replace with recipient's email
     
     #发送邮件
     #send_email(subject, body, sender_email, sender_password, recipient_email)
