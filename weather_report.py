@@ -42,7 +42,8 @@ def get_nowTime():
   current_time_no_seconds = current_time.replace(second=0, microsecond=0)
 
   # Step 3: Add 8 hours
-  new_time = current_time_no_seconds + timedelta(hours=8)
+  #new_time = current_time_no_seconds + timedelta(hours=8)
+  new_time = current_time_no_seconds + timedelta(hours=0)
 
   # Print the result
   #print("Current Time (without seconds):", current_time_no_seconds)
