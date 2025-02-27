@@ -36,3 +36,6 @@ jobs:
         APP_SECRET: ${{ secrets.APP_SECRET }}
         OPEN_ID: ${{ secrets.OPEN_ID }}
         TEMPLATE_ID: ${{ secrets.TEMPLATE_ID }}
+        MAIL_SEND: ${{ secrets.MAIL_SEND }}
+        MAIL_SEND_PASSWORD: ${{ secrets.MAIL_SEND_PASSWORD }}
+        MAIL_RECEIVE: ${{ secrets.MAIL_RECEIVE }}
