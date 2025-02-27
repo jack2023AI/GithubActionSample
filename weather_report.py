@@ -137,11 +137,11 @@ if __name__ == '__main__':
      #发送邮件
     subject = "今日启动"
     time_11=get_nowTime()
-    #body=time_11.strftime('%Y-%m-%d %H:%M:%S')
-    body=values[0].strip()
+    body=time_11.strftime('%Y-%m-%d %H:%M:%S')
+    #body=values[0].strip()
     send_email(subject, body, sender_email, sender_password, recipient_email)
 
-    '''
+    
     #a_Old=3.63
     #h_Old=2.50
     #dif_ok=2.0
@@ -151,4 +151,4 @@ if __name__ == '__main__':
     h_code='01816'
     
     check_difference(a_Old, h_Old, dif_ok,dif_ok2,name, a_code,h_code)
-    '''
+    
