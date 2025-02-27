@@ -1,9 +1,3 @@
-# 安装依赖 pip3 install requests html5lib bs4 schedule
-import os
-import requests
-import json
-from bs4 import BeautifulSoup
-
 import smtplib
 from email.mime.text import MIMEText
 
@@ -25,18 +19,13 @@ def send_email(subject, body, sender_email, sender_password, recipient_email):
     except Exception as e:
         print(f"Failed to send email: {e}")
 
-# Usage
-subject = "关注价差__"
-body = "This is a test email sent from Python!"
-sender_email = ""  # Replace with your email
-sender_password = ""  # Replace with your email password or app-specific password
-recipient_email = ""  # Replace with recipient's email
-
-#发送邮件
-#send_email(subject, body, sender_email, sender_password, recipient_email)
-send_email(subject, body, sender_email, sender_password, recipient_email)
 
 
+# 安装依赖 pip3 install requests html5lib bs4 schedule
+import os
+import requests
+import json
+from bs4 import BeautifulSoup
 
 # 从测试号信息获取
 appID = os.environ.get("APP_ID")
@@ -164,4 +153,15 @@ def weather_report(this_city):
 
 
 if __name__ == '__main__':
-    weather_report("淄博")
+    #weather_report("淄博")
+
+    # Usage
+    subject = "关注价差__"
+    body = "This is a test email sent from Python!"
+    sender_email = os.environ.get("APP_SEND_MAIL")  # Replace with your email
+    sender_password = os.environ.get("APP_SEND_PASSWORD")  # Replace with your email password or app-specific password
+    recipient_email = os.environ.get("APP_RECEIVE_MAIL")  # Replace with recipient's email
+    
+    #发送邮件
+    #send_email(subject, body, sender_email, sender_password, recipient_email)
+    send_email(subject, body, sender_email, sender_password, recipient_email)
