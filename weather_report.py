@@ -58,7 +58,7 @@ def check_WorkTime(new_time):
   is_within_range = start_time <= new_time <= end_time
 
   start_time2 = new_time.replace(hour=13, minute=0, second=0, microsecond=0)
-  end_time2 = new_time.replace(hour=18, minute=4, second=0, microsecond=0)
+  end_time2 = new_time.replace(hour=18, minute=8, second=0, microsecond=0)
   is_within_range2 = start_time2 <= new_time <= end_time2
 
   return is_within_range or is_within_range2
@@ -107,6 +107,7 @@ def check_difference(a_Old, h_Old, dif_ok,dif_ok2,name, a_code,h_code):
       #time.sleep(60)  # 模拟等待秒数
 
       subject = "今日结束"
+      body = "今日结束"
       send_email(subject, body, sender_email, sender_password, recipient_email)
       break
 
