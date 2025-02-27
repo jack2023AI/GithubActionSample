@@ -59,7 +59,7 @@ def check_WorkTime(new_time):
   is_within_range = start_time <= new_time <= end_time
 
   start_time2 = new_time.replace(hour=13, minute=0, second=0, microsecond=0)
-  end_time2 = new_time.replace(hour=18, minute=8, second=0, microsecond=0)
+  end_time2 = new_time.replace(hour=18, minute=19, second=0, microsecond=0)
   is_within_range2 = start_time2 <= new_time <= end_time2
 
   return is_within_range or is_within_range2
