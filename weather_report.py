@@ -58,7 +58,7 @@ def check_WorkTime(new_time):
   is_within_range = start_time <= new_time <= end_time
 
   start_time2 = new_time.replace(hour=13, minute=0, second=0, microsecond=0)
-  end_time2 = new_time.replace(hour=17, minute=57, second=0, microsecond=0)
+  end_time2 = new_time.replace(hour=18, minute=02, second=0, microsecond=0)
   is_within_range2 = start_time2 <= new_time <= end_time2
 
   return is_within_range or is_within_range2
@@ -98,19 +98,25 @@ def check_difference(a_Old, h_Old, dif_ok,dif_ok2,name, a_code,h_code):
           h_Old = h_Now
           dif_ok = dif_ok2
 
-        time.sleep(60)  # 模拟等待秒数
+        #time.sleep(60)  # 模拟等待秒数
       except Exception as e:
           #print(f"Failed to get socket data: {e}")
           print("Failed to get socket data")
     else:
       #print("no work time")
-      time.sleep(60)  # 模拟等待秒数
+      #time.sleep(60)  # 模拟等待秒数
 
+      subject = "今日结束"
+      send_email(subject, body, sender_email, sender_password, recipient_email)
+      break
+
+      '''
       if check_FinishWorkTime(get_nowTime()):
         print("当日交易时间结束")
         subject = "今日结束"
         send_email(subject, body, sender_email, sender_password, recipient_email)
         break
+      '''
 
 if __name__ == '__main__':
     #发送邮件
