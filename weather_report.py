@@ -17,6 +17,7 @@ sender_password = os.environ.get("MAIL_SEND_PASSWORD")  # Replace with your emai
 recipient_email = os.environ.get("MAIL_RECEIVE")  # Replace with recipient's email
 a_Old = float(os.environ.get("PRICE_A_OLD"))
 h_Old = float(os.environ.get("PRICE_H_OLD"))
+dif_ok= float(os.environ.get("PRICE_DIFFERENCE_RATIO"))
 
 
 def send_email(subject, body, sender_email, sender_password, recipient_email):
@@ -62,7 +63,7 @@ def check_WorkTime(new_time):
   is_within_range = start_time <= new_time <= end_time
 
   start_time2 = new_time.replace(hour=13, minute=0, second=0, microsecond=0)
-  end_time2 = new_time.replace(hour=15, minute=0, second=0, microsecond=0)
+  end_time2 = new_time.replace(hour=19, minute=0, second=0, microsecond=0)
   is_within_range2 = start_time2 <= new_time <= end_time2
 
   return is_within_range or is_within_range2
@@ -136,8 +137,8 @@ if __name__ == '__main__':
 
     #a_Old=3.63
     #h_Old=2.50
-    dif_ok=2.0
-    dif_ok2=2.0
+    #dif_ok=2.0
+    dif_ok2=dif_ok
     name='中国广核'
     a_code='003816'
     h_code='01816'
