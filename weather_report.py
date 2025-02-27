@@ -15,9 +15,12 @@ body = "This is a test email sent from Python!"
 sender_email = os.environ.get("MAIL_SEND")  # Replace with your email
 sender_password = os.environ.get("MAIL_SEND_PASSWORD")  # Replace with your email password or app-specific password
 recipient_email = os.environ.get("MAIL_RECEIVE")  # Replace with recipient's email
-a_Old = float(os.environ.get("PRICE_A_OLD"))
-h_Old = float(os.environ.get("PRICE_H_OLD"))
-dif_ok= float(os.environ.get("PRICE_DIFFERENCE_RATIO"))
+a_Old_str = os.environ.get("PRICE_A_OLD")
+h_Old_str = float(os.environ.get("PRICE_H_OLD"))
+dif_ok_str= float(os.environ.get("PRICE_DIFFERENCE_RATIO"))
+a_Old=float(a_Old_str)
+h_Old=float(h_Old_str)
+dif_ok=float(dif_ok_str)
 
 
 def send_email(subject, body, sender_email, sender_password, recipient_email):
