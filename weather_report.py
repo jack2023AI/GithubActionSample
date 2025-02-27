@@ -53,9 +53,9 @@ def get_nowTime():
 
   return new_time
 
-def check_WorkTime(new_time):
+def check_WorkTime0(new_time):
   # Define the time range for 9 AM to 11 AM
-  start_time = new_time.replace(hour=9, minute=30, second=0, microsecond=0)
+  start_time = new_time.replace(hour=9, minute=20, second=0, microsecond=0)
   end_time = new_time.replace(hour=11, minute=30, second=0, microsecond=0)
   # Check if new_time is within the range
   is_within_range = start_time <= new_time <= end_time
@@ -65,6 +65,15 @@ def check_WorkTime(new_time):
   is_within_range2 = start_time2 <= new_time <= end_time2
 
   return is_within_range or is_within_range2
+
+def check_WorkTime(new_time):
+  # Define the time range for 9 AM to 11 AM
+  start_time = new_time.replace(hour=9, minute=20, second=0, microsecond=0)
+  end_time = new_time.replace(hour=15, minute=0, second=0, microsecond=0)
+  # Check if new_time is within the range
+  is_within_range = start_time <= new_time <= end_time
+
+  return is_within_range
 
 def check_FinishWorkTime(new_time):
   finish_time = new_time.replace(hour=15, minute=0, second=0, microsecond=0)
