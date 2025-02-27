@@ -28,9 +28,9 @@ def send_email(subject, body, sender_email, sender_password, recipient_email):
 # Usage
 subject = "关注价差__"
 body = "This is a test email sent from Python!"
-sender_email = "feifpeng45@gmail.com"  # Replace with your email
-sender_password = "qepgxutocyvorazn"  # Replace with your email password or app-specific password
-recipient_email = "feifpeng@163.com"  # Replace with recipient's email
+sender_email = ""  # Replace with your email
+sender_password = ""  # Replace with your email password or app-specific password
+recipient_email = ""  # Replace with recipient's email
 
 #发送邮件
 #send_email(subject, body, sender_email, sender_password, recipient_email)
