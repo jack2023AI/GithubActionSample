@@ -58,19 +58,19 @@ def check_WorkTime(new_time):
   is_within_range = start_time <= new_time <= end_time
 
   start_time2 = new_time.replace(hour=13, minute=0, second=0, microsecond=0)
-  end_time2 = new_time.replace(hour=15, minute=3, second=0, microsecond=0)
+  end_time2 = new_time.replace(hour=17, minute=43, second=0, microsecond=0)
   is_within_range2 = start_time2 <= new_time <= end_time2
 
   return is_within_range or is_within_range2
 
 def check_FinishWorkTime(new_time):
-  finish_time = new_time.replace(hour=15, minute=3, second=0, microsecond=0)
+  finish_time = new_time.replace(hour=17, minute=43, second=0, microsecond=0)
   return   new_time > finish_time
 
 def check_difference(a_Old, h_Old, dif_ok,dif_ok2,name, a_code,h_code):
   while True:
-    #if check_WorkTime(get_nowTime()):
-    if True:
+    if check_WorkTime(get_nowTime()):
+    #if True:
       try:
         #下载数据
         a_stock_data = ak.stock_sz_a_spot_em()
