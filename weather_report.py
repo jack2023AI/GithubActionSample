@@ -108,6 +108,8 @@ def check_difference(a_Old, h_Old, dif_ok,dif_ok2,name, a_code,h_code):
 
       if check_FinishWorkTime(get_nowTime()):
         print("当日交易时间结束")
+        subject = "今日结束"
+        send_email(subject, body, sender_email, sender_password, recipient_email)
         break
 
 if __name__ == '__main__':
