@@ -69,7 +69,7 @@ def check_WorkTime0(new_time):
 def check_WorkTime(new_time):
   # Define the time range for 9 AM to 11 AM
   start_time = new_time.replace(hour=8, minute=0, second=0, microsecond=0)
-  end_time = new_time.replace(hour=15, minute=0, second=0, microsecond=0)
+  end_time = new_time.replace(hour=16, minute=0, second=0, microsecond=0)
   # Check if new_time is within the range
   is_within_range = start_time <= new_time <= end_time
 
