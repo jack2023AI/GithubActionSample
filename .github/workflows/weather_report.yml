@@ -1,7 +1,7 @@
 # This workflow will install Python dependencies, run tests and lint with a single version of Python
 # For more information see: https://docs.github.com/en/actions/automating-builds-and-tests/building-and-testing-python
 
-name: 天气预报推送
+name: Trade巨变推送
 
 on:
   schedule:
@@ -9,7 +9,7 @@ on:
     - cron : '0 0 * * 1,2,3,4,5'
     - cron : '30 3 * * 1,2,3,4,5'
   workflow_dispatch:
-
+  
 permissions:
   contents: read
 
